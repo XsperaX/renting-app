@@ -1,0 +1,41 @@
+<!-- ========================================================= -->
+<!-- CABECERA LOGIN -->
+<!-- ========================================================= -->
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- ========================================================= -->
+<!-- CONTENIDO LOGIN -->
+<!-- ========================================================= -->
+<ion-content class="ion-padding">
+
+  <h2 style="text-align: center; margin-bottom: 16px;">
+    Acceso administrador
+  </h2>
+
+  <!-- Campo nombre de usuario -->
+  <ion-item>
+    <ion-label position="stacked">Usuario</ion-label>
+    <ion-input [(ngModel)]="nombre" type="text"></ion-input>
+  </ion-item>
+
+  <!-- Campo contraseña -->
+  <ion-item>
+    <ion-label position="stacked">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+  <!-- Mensaje de error si el login falla -->
+  <p *ngIf="mensajeError" style="color:red; margin-top: 10px;">
+    {{ mensajeError }}
+  </p>
+
+  <!-- Botón entrar -->
+  <ion-button expand="block" color="primary" style="margin-top: 20px;" (click)="entrar()">
+    Entrar
+  </ion-button>
+
+</ion-content>

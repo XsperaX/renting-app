@@ -1,0 +1,42 @@
+.client-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 14px rgba(0,0,0,0.15);
+  margin: 16px;
+}
+
+.client-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+}
+
+.client-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.client-info {
+  flex: 1;
+}
+
+.client-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.client-detail {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.delete-btn, .edit-btn {
+  height: 40px;
+}

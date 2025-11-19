@@ -1,0 +1,41 @@
+.rent-card {
+  border-radius: 12px;
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.rent-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.rent-img {
+  width: 120px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.rent-info {
+  flex: 1;
+}
+
+.rent-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.rent-detail {
+  margin: 4px 0;
+  color: #555;
+}
+
+.rent-price {
+  margin-top: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #008cff;
+}

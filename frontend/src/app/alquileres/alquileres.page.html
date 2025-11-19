@@ -1,0 +1,156 @@
+<!-- ========================================================= -->
+<!-- CABECERA -->
+<!-- ========================================================= -->
+<ion-header>
+  <ion-toolbar color="dark">
+
+    <!-- BOTÓN VOLVER -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Alquileres</ion-title>
+
+    <!-- Botón añadir alquiler -->
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirModal()">
+        <ion-icon name="add-circle" slot="start"></ion-icon>
+        AGREGAR ALQUILER
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- ========================================================= -->
+<!-- CONTENIDO -->
+<!-- ========================================================= -->
+<ion-content color="light">
+
+  <ion-list lines="none">
+
+    <!-- CARD POR CADA ALQUILER -->
+    <ion-card *ngFor="let alq of alquileres" class="rent-card">
+
+      <div class="rent-container">
+
+        <!-- FOTO DEL COCHE (desde backend /uploads) -->
+        <img
+          *ngIf="getCocheById(alq.cocheId) as car"
+          [src]="car.foto ? 'http://localhost:8080/uploads/' + car.foto : 'assets/img/alquiler.png'"
+          alt="coche"
+          class="rent-img"
+        />
+
+        <!-- INFORMACIÓN DEL ALQUILER -->
+        <div class="rent-info">
+
+          <h2 class="rent-title">
+            <!-- Nombre del cliente -->
+            {{ getClienteById(alq.clienteId)?.nombre }}
+            {{ getClienteById(alq.clienteId)?.apellido }}
+          </h2>
+
+          <p class="rent-detail">
+            <strong>Coche:</strong>
+            {{ getCocheById(alq.cocheId)?.marca }}
+            {{ getCocheById(alq.cocheId)?.modelo }}
+          </p>
+
+          <p class="rent-detail">
+            <strong>Inicio:</strong> {{ alq.fecha_inicio }}
+          </p>
+
+          <p class="rent-detail">
+            <strong>Fin:</strong> {{ alq.fecha_fin }}
+          </p>
+
+          <p class="rent-price">
+            Total: {{ alq.precio_total }} €
+          </p>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN -->
+        <ion-button color="medium" (click)="abrirModal(alq)">
+          Editar
+        </ion-button>
+
+        <ion-button color="danger" (click)="eliminar(alq.id)">
+          Eliminar
+        </ion-button>
+
+      </div>
+
+    </ion-card>
+
+  </ion-list>
+</ion-content>
+
+<!-- ========================================================= -->
+<!-- MODAL CREAR / EDITAR ALQUILER -->
+<!-- ========================================================= -->
+<ion-modal [isOpen]="modalAbierto">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>{{ editando ? 'Editar alquiler' : 'Nuevo alquiler' }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <ion-list>
+
+        <!-- SELECT CLIENTE -->
+        <ion-item>
+          <ion-label position="stacked">Cliente</ion-label>
+          <ion-select [(ngModel)]="form.clienteId">
+            <ion-select-option *ngFor="let cl of clientes" [value]="cl.id">
+              {{ cl.nombre }} {{ cl.apellido }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- SELECT COCHE -->
+        <ion-item>
+          <ion-label position="stacked">Coche</ion-label>
+          <ion-select [(ngModel)]="form.cocheId">
+            <ion-select-option *ngFor="let c of coches" [value]="c.id">
+              {{ c.marca }} {{ c.modelo }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- FECHA INICIO -->
+        <ion-item>
+          <ion-label position="stacked">Fecha inicio</ion-label>
+          <ion-input type="date" [(ngModel)]="form.fecha_inicio"></ion-input>
+        </ion-item>
+
+        <!-- FECHA FIN -->
+        <ion-item>
+          <ion-label position="stacked">Fecha fin</ion-label>
+          <ion-input type="date" [(ngModel)]="form.fecha_fin"></ion-input>
+        </ion-item>
+
+        <!-- PRECIO TOTAL -->
+        <ion-item>
+          <ion-label position="stacked">Precio total</ion-label>
+          <ion-input type="number" [(ngModel)]="form.precio_total"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <!-- BOTÓN GUARDAR -->
+      <ion-button expand="block" color="success" (click)="guardar()">
+        {{ editando ? 'Guardar cambios' : 'Crear alquiler' }}
+      </ion-button>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>

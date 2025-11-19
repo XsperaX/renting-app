@@ -1,0 +1,58 @@
+.home-bg {
+  --background: #f2f5f9;
+}
+
+.home-header {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.home-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.home-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.menu-card {
+  padding: 20px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-card ion-icon {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.menu-card h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.menu-card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* EFECTO ANIMADO AL PASAR */
+.menu-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}

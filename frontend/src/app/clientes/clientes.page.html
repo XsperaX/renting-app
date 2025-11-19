@@ -1,0 +1,140 @@
+<!-- CABECERA ---------------------------------------------------- -->
+<ion-header>
+  <ion-toolbar color="dark">
+
+  <!-- BOTÓN VOLVER -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Clientes registrados</ion-title>
+
+    <!-- Botón para añadir cliente -->
+    <ion-buttons slot="end">
+    <ion-button (click)="abrirModal()">
+    <ion-icon name="add-circle"></ion-icon>
+     <span style="margin-left: 6px;">Agregar cliente</span>
+    </ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTENIDO PRINCIPAL ----------------------------------------- -->
+<ion-content color="light">
+
+  <ion-list lines="none">
+
+    <!-- CARD DE CADA CLIENTE -->
+    <ion-card *ngFor="let cliente of clientes" class="client-card">
+
+      <div class="client-container">
+
+        <!-- FOTO genérica para clientes uso la de coches para ut3,aqui dejo una estandar por falta de tiempo -->
+        <img
+          src="assets/img/cliente.png"
+          alt="Foto cliente"
+          class="client-image"
+        />
+
+        <!-- INFO DEL CLIENTE -->
+        <div class="client-info">
+          <h2 class="client-title">{{ cliente.nombre }} {{ cliente.apellido }}</h2>
+
+          <p class="client-detail">
+            <strong>Email:</strong> {{ cliente.email }}
+          </p>
+
+          <p class="client-detail">
+            <strong>Teléfono:</strong> {{ cliente.telefono }}
+          </p>
+
+          <p class="client-detail">
+            <strong>DNI:</strong> {{ cliente.dni }}
+          </p>
+        </div>
+
+        <!-- BOTÓN ELIMINAR -->
+        <ion-button
+          color="danger"
+          fill="solid"
+          class="delete-btn"
+          (click)="eliminar(cliente.id)"
+        >
+          Eliminar
+        </ion-button>
+
+        <!-- BOTÓN EDITAR -->
+        <ion-button
+          color="medium"
+          fill="solid"
+          class="edit-btn"
+          (click)="abrirModal(cliente)"
+        >
+          Editar
+        </ion-button>
+
+      </div>
+
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>
+
+
+<!-- MODAL CREAR / EDITAR CLIENTE -------------------------------------------- -->
+<ion-modal [isOpen]="modalAbierto">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>{{ editando ? 'Editar cliente' : 'Añadir cliente' }}</ion-title>
+
+        <ion-buttons slot="end">
+          <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+        </ion-buttons>
+
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input [(ngModel)]="form.nombre"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Apellido</ion-label>
+          <ion-input [(ngModel)]="form.apellido"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="form.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input type="tel" [(ngModel)]="form.telefono"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">DNI</ion-label>
+          <ion-input [(ngModel)]="form.dni"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-button expand="block" color="success" (click)="guardar()">
+        {{ editando ? 'Guardar cambios' : 'Crear cliente' }}
+      </ion-button>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>

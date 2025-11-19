@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Renting App</ion-title>
+
+    <!-- BOTONES DERECHA: CÁMARA + CERRAR SESIÓN -->
+    <ion-buttons slot="end">
+
+      <!-- Botón cámara -->
+      <ion-button routerLink="/camera">
+        <ion-icon name="camera-outline"></ion-icon>
+      </ion-button>
+
+      <!-- Botón cerrar sesión -->
+      <ion-button color="danger" (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="home-bg">
+
+  <div class="home-header">
+    <h1>Bienvenido 👋</h1>
+    <p>Gestiona fácilmente coches, clientes y alquileres.</p>
+  </div>
+
+  <div class="home-grid">
+
+    <!-- CARD COCHES -->
+    <ion-card (click)="go('coches')" class="menu-card">
+      <ion-icon name="car-sport-outline"></ion-icon>
+      <h2>Coches</h2>
+      <p>Listado, añadir y gestión completa.</p>
+    </ion-card>
+
+    <!-- CARD CLIENTES -->
+    <ion-card (click)="go('clientes')" class="menu-card">
+      <ion-icon name="people-outline"></ion-icon>
+      <h2>Clientes</h2>
+      <p>Gestión de clientes y sus datos.</p>
+    </ion-card>
+
+    <!-- CARD ALQUILERES -->
+    <ion-card (click)="go('alquileres')" class="menu-card">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <h2>Alquileres</h2>
+      <p>Control total de reservas.</p>
+    </ion-card>
+
+  </div>
+
+</ion-content>
