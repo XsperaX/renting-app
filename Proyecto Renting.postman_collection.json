@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "59bd5250-7bf4-4200-8c76-ac6327d43129",
+		"name": "Proyecto Renting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48920004",
+		"_collection_link": "https://ericodavidperezcardenes-1644170.postman.co/workspace/ERICO-DAVID-PEREZ's-Workspace~e12267a4-71aa-499c-8b51-c904fd363df8/collection/48920004-59bd5250-7bf4-4200-8c76-ac6327d43129?action=share&source=collection_link&creator=48920004"
+	},
+	"item": [
+		{
+			"name": "Coches",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"marca\": \"Toyota\",\r\n        \"modelo\": \"Prius\",\r\n        \"matricula\": \"6958MHJ\",\r\n        \"anio\": 2024,\r\n        \"precio_dia\": \"35.50\",\r\n        \"disponible\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/coches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Coches",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Coches",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"precio_dia\": \"31.50\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/coches/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coches",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Coches",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coches/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coches",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Coches matricula",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coches/matricula/6958MHJ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coches",
+						"matricula",
+						"6958MHJ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Tiburcio\",\r\n  \"apellido\": \"Morales\",\r\n  \"email\": \"Tiburcio@example.com\",\r\n  \"telefono\": \"666555444\",\r\n  \"dni\": \"12345678A\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Tiburcio\",\r\n  \"apellido\": \"Morales\",\r\n  \"email\": \"Tiburcio@example.com\",\r\n  \"telefono\": \"666555444\",\r\n  \"dni\": \"12345678A\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \"apellido\": \"Sanchez\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes DNI",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes/dni/12345678A",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"dni",
+						"12345678A"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alquilers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fecha_inicio\": \"2025-11-15\",\r\n    \"fecha_fin\": \"2025-11-20\",\r\n    \"clienteId\": 1,\r\n    \"cocheId\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/alquilers\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alquilers\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alquilers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alquilers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alquilers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alquilers",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"fecha_fin\": \"2025-11-24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/alquilers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alquilers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear el admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/crear-admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"crear-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "El logeo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"erico\",\r\n  \"password\": \"pirineus\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
