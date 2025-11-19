@@ -84,6 +84,9 @@ Este proyecto incluye todos los requisitos:
 -   PUT funcionando\
 -   DELETE funcionando\
 -   Documentación de API en Postman\
+## 📌 2. Documentación de la API (Postman)
+La colección completa de Postman usada en este proyecto está incluida en este repositorio:
+📄 `Proyecto Renting.postman_collection.json`
 -   Repositorio con README y BD subida
 
 ## ✔️ UT2 -- Componentes de Ionic + CRUDs adicionales
